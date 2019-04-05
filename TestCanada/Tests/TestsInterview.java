@@ -5,9 +5,10 @@ import java.util.HashMap;
 public class TestsInterview {
 	
 	public static void main(String[] args) {
-		System.out.println(checkNewspaperWords("abc, de! de fg","de? fg")); 
-		int Main_Array[] = {1,0,0,0,0,1,1,1,1,1};
-		//System.out.println(findMaxZerosOrOnes(Main_Array)); 
+		System.out.println(checkNewspaperWords("abc, de! de fg","de? fg fg! fg#")); 
+//		int[] enterArray={1,1,1,1,0,1,0,0,0,0,1};
+//		findMaxZerosOrOnes(enterArray); 
+//		
 	}
 	
 //	1. There is a scoundrel who stole a dog from a neighbor.
@@ -31,6 +32,7 @@ public class TestsInterview {
 					newspaperMap.put(word, newspaperMap.get(word)+1);
 				}
 				}
+		
 		for (String noteWord : noteWords) {
             if (newspaperMap.get(noteWord) == null) {
                 newspaperMap.put(noteWord, -1);    
@@ -40,39 +42,44 @@ public class TestsInterview {
 		 }
 		
         for (HashMap.Entry<String, Integer> wordItem : newspaperMap.entrySet()) {
-            if (wordItem.getValue() > 0) {
-            	result = true;
+            if (wordItem.getValue() < 0) {
+            	//Not enough words in Newspaper
+            	result = false;
+            	break;
             } else {
-               //Not enough words in Newspaper
-               result = false;
+               result = true;
             }  
         }
 		return result; 
 	}
 	
-	//3. Написать функцию, которая принимает на вход массив нулей и единиц 
-	//и возвращает максимальное число идущий вподряд нулей или единиц
+
+	// 3. Write a function that takes an array of zeros and ones as input
+	// and returns the maximum number of consecutive zeros or ones
 	
-	public static int findMaxZerosOrOnes(int[] arr) {
-		int result = 0; 
-		
-		int zeroCountInRow = 0;
+	public static int findMaxZerosOrOnes(int arr[]) {
+		int resultOnes = 0; 
 		int onesCountInRow = 0;
-		int i; 
 		
-		for (int n:arr) {
-			if(n==0) {
-				zeroCountInRow++;
+		for (int i = 0; i < arr.length; i++) {
+			
+			// Reset count when 0 is found 
+			if (arr[i] == 0) {
+				onesCountInRow = 0; 
 			}
-			if(n==1) {
-				onesCountInRow++;
-			}
-			else{ 
-				  throw new IllegalArgumentException();
-			}
+			
+			// If 1 is found, increment count 
+            // and update result if count becomes 
+            // more. 
+			else {
+				onesCountInRow++;//increase count 
+                resultOnes = Math.max(resultOnes, onesCountInRow); 
+						}
 		}
+			
+		System.out.println(resultOnes);
 		
-		return result;
+		return resultOnes;
 		
 	}
 
