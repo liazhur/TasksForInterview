@@ -5,10 +5,11 @@ import java.util.HashMap;
 public class TestsInterview {
 	
 	public static void main(String[] args) {
-		System.out.println(checkNewspaperWords("abc, de! de fg","de? fg fg! fg#")); 
+//		System.out.println(checkNewspaperWords("abc, de! de fg","de? fg fg! fg#")); 
 //		int[] enterArray={1,1,1,1,0,1,0,0,0,0,1};
 //		findMaxZerosOrOnes(enterArray); 
-//		
+		System.out.println(isArmstrongNumber(152));
+		
 	}
 	
 //	1. There is a scoundrel who stole a dog from a neighbor.
@@ -54,6 +55,51 @@ public class TestsInterview {
 	}
 	
 
+//2. Write a function that takes a number as input and returns true if this number is an Armstrong number 
+//	or false if it is not
+	/* Function to calculate x raised to the 
+    power y */
+ static int power(int x, long y) 
+ { 
+     if( y == 0) 
+         return 1; 
+     if (y%2 == 0) 
+         return power(x, y/2)*power(x, y/2); 
+     return x*power(x, y/2)*power(x, y/2); 
+ } 
+
+ /* Function to calculate order of the number */
+ static int order(int x) 
+ { 
+     int n = 0; 
+     while (x != 0) 
+     { 
+         n++; 
+         x = x/10; 
+     } 
+     return n; 
+ } 
+
+ // Function to check whether the given number is 
+ // Armstrong number or not 
+ static boolean isArmstrongNumber (int x) 
+ { 
+     // Calling order function 
+     int n = order(x); 
+     int temp=x, sum=0; 
+     while (temp!=0) 
+     { 
+         int r = temp%10; 
+         sum = sum + power(r,n); 
+         temp = temp/10; 
+     } 
+
+     // If satisfies Armstrong condition 
+     return (sum == x); 
+ } 
+		
+
+
 	// 3. Write a function that takes an array of zeros and ones as input
 	// and returns the maximum number of consecutive zeros or ones
 	
@@ -76,7 +122,6 @@ public class TestsInterview {
                 resultOnes = Math.max(resultOnes, onesCountInRow); 
 						}
 		}
-			
 		System.out.println(resultOnes);
 		
 		return resultOnes;
