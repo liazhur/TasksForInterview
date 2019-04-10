@@ -60,18 +60,17 @@ public class TestsInterview {
 			if (newsppList.contains(wordFromNote)) {
 				newsppList.remove(wordFromNote);
 				result = true;
-			} else {
-				result = false;
-				break;
-			}
+			} else
+				return false;
 		}
 		return result;
 	}
 
 	/*
-	 * 2. Write a function that takes a number as input and returns true if this
-	 * number is an Armstrong number or false if it is not
+	 * Write a function that takes a number as input and returns true if this number
+	 * is an Armstrong number or false if it is not
 	 */
+
 	static boolean isArmstrongNumber(int x) {
 		int originalNumber, remainder, result = 0, n = 0;
 
@@ -95,10 +94,42 @@ public class TestsInterview {
 		return false;
 	}
 
+	public static boolean isArmstrongNumber2(int n) {// 407
+		int sum = 0, remainder, digits = 0,
+
+				temp = n;
+
+		while (temp != 0) {
+			digits++; // find power 3
+			temp = temp / 10;
+		}
+
+		temp = n;
+
+		while (temp != 0) {
+			remainder = temp % 10; // 7 0 4
+			sum += power(remainder, digits); // 7 in power 3 0 in 3 4 in 3
+			temp = temp / 10;
+		}
+		if (n == sum) // Armstrong number
+			return true;
+		else // Not Armstrong number
+			return false;
+	}
+
+	static int power(int number, int power) {
+		int c, p = 1;
+
+		for (c = 1; c <= power; c++)
+			p = p * number;
+
+		return p;
+	}
+
 	// 3. Write a function that takes an array of zeros and ones as input
 	// and returns the maximum number of consecutive zeros or ones
 
-	public static int findMaxZerosOrOnes(int arr[]) {
+	public static int findMaxZeros(int arr[]) {
 		int resultOnes = 0;
 		int onesCountInRow = 0;
 
@@ -108,19 +139,75 @@ public class TestsInterview {
 			if (arr[i] == 0) {
 				onesCountInRow = 0;
 			}
-
-			// If 1 is found, increment count
-			// and update result if count becomes
-			// more.
+			// If 1 is found, increment count and update result if count becomes more.
 			else {
 				onesCountInRow++;// increase count
 				resultOnes = Math.max(resultOnes, onesCountInRow);
 			}
 		}
 		System.out.println(resultOnes);
-
 		return resultOnes;
+	}
 
+	public static int findMaxOnes(int arr[]) {
+		int resultOnes = 0;
+		int onesCountInRow = 0;
+
+		for (int i = 0; i < arr.length; i++) {
+			// If 1 is found, increment count
+			// and update result if count becomes
+			// more.
+			if (arr[i] == 1) {
+				onesCountInRow++;// increase count
+//				resultOnes = Math.max(resultOnes, onesCountInRow);
+				if (resultOnes < onesCountInRow) {
+					resultOnes = onesCountInRow;
+				}
+			} else {
+				// Reset count when 0 is found
+				onesCountInRow = 0;
+			}
+		}
+		System.out.println(resultOnes);
+		return resultOnes;
+	}
+
+	public static String findMaxZerosOrOnes(int arr[]) {
+		int resultOnes = 0;
+		int resultZeros = 0;
+		int onesCountInRow = 0;
+		int zerosCountInRow = 0;
+		String result;
+
+		for (int i = 0; i < arr.length; i++) {
+			// If 1 is found, increment count
+			// and update result if count becomes
+			// more.
+			if (arr[i] == 1) {
+				onesCountInRow++;// increase count
+				zerosCountInRow = 0;
+//					resultOnes = Math.max(resultOnes, onesCountInRow);
+				if (resultOnes < onesCountInRow) {
+					resultOnes = onesCountInRow;
+				}
+			} else {
+				// Reset count when 0 is found
+				onesCountInRow = 0;
+				zerosCountInRow++;
+				if (resultZeros < zerosCountInRow) {
+					resultZeros = zerosCountInRow;
+				}
+			}
+		}
+		if (resultOnes < resultZeros) {
+			result = "Max is 0: " + String.valueOf(resultZeros);
+		} else if (resultOnes > resultZeros) {
+			result = "Max is 1: " + String.valueOf(resultOnes);
+		} else {
+			result = "Equal numbers of 1 and 0";
+		}
+		System.out.println(result);
+		return result;
 	}
 
 }
