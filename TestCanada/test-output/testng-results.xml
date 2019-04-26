@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="54" started-at="2019-04-26T04:34:50Z" finished-at="2019-04-26T04:34:50Z">
+  <suite name="Default suite" duration-ms="47" started-at="2019-04-26T05:18:54Z" finished-at="2019-04-26T05:18:54Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="54" started-at="2019-04-26T04:34:50Z" finished-at="2019-04-26T04:34:50Z">
-      <class name="Tests.PositionInCircularArr">
-        <test-method status="PASS" signature="searchPosition()[pri:0, instance:Tests.PositionInCircularArr@100fc185]" name="searchPosition" duration-ms="13" started-at="2019-04-26T04:34:50Z" finished-at="2019-04-26T04:34:50Z">
+    <test name="Default test" duration-ms="47" started-at="2019-04-26T05:18:54Z" finished-at="2019-04-26T05:18:54Z">
+      <class name="Tests.RemoveDuplicatesFromString">
+        <test-method status="PASS" signature="removeDuplicates()[pri:0, instance:Tests.RemoveDuplicatesFromString@100fc185]" name="removeDuplicates" duration-ms="16" started-at="2019-04-26T05:18:54Z" finished-at="2019-04-26T05:18:54Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- searchPosition -->
-      </class> <!-- Tests.PositionInCircularArr -->
+        </test-method> <!-- removeDuplicates -->
+      </class> <!-- Tests.RemoveDuplicatesFromString -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
