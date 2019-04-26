@@ -1,0 +1,4 @@
+This file
+is 
+for task
+to "Write a program that returns the count of each word in the file."

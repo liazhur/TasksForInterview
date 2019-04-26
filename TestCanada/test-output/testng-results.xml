@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="9" total="10" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="44" started-at="2019-04-10T01:11:37Z" finished-at="2019-04-10T01:11:37Z">
+  <suite name="Default suite" duration-ms="54" started-at="2019-04-26T04:34:50Z" finished-at="2019-04-26T04:34:50Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="44" started-at="2019-04-10T01:11:37Z" finished-at="2019-04-10T01:11:37Z">
-      <class name="Tests.TestRunTestNG">
-        <test-method status="PASS" signature="checkNewspaperWordsLists()[pri:0, instance:Tests.TestRunTestNG@643b1d11]" name="checkNewspaperWordsLists" duration-ms="17" started-at="2019-04-10T01:11:37Z" finished-at="2019-04-10T01:11:37Z">
+    <test name="Default test" duration-ms="54" started-at="2019-04-26T04:34:50Z" finished-at="2019-04-26T04:34:50Z">
+      <class name="Tests.PositionInCircularArr">
+        <test-method status="PASS" signature="searchPosition()[pri:0, instance:Tests.PositionInCircularArr@100fc185]" name="searchPosition" duration-ms="13" started-at="2019-04-26T04:34:50Z" finished-at="2019-04-26T04:34:50Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkNewspaperWordsLists -->
-      </class> <!-- Tests.TestRunTestNG -->
+        </test-method> <!-- searchPosition -->
+      </class> <!-- Tests.PositionInCircularArr -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
