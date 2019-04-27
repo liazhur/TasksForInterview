@@ -9,18 +9,24 @@ public class ArrayProduct {
 	static int arr[] = { 10, 3, 5, 6, 2 };
 
 	public static void main(String[] args) {
-//		Arrays.toString(productArray(arr));
+
+		Arrays.toString(productArray(arr));
+
 		System.out.println(Arrays.toString(productArrayResult(arr)));
+
+		System.out.println(productRecursive(arr, arr.length));
 	}
 
 	@Test
 	public void arrayProduct() {
 		Assert.assertEquals(Arrays.toString(productArray(arr)), "[180, 600, 360, 300, 900]");
+		Assert.assertEquals(Arrays.toString(productArrayResult(arr)), "[180, 600, 360, 300, 900]");
 	}
 
 	// Given an array of integers, calculate for each position the product of all
 	// members of the array except for the integer in current position
 
+	// solution 1
 	static int[] productArray(int arr[]) {
 		// Initialize memory to all arrays
 		int n = arr.length;
@@ -61,7 +67,7 @@ public class ArrayProduct {
 	static int[] productArrayResult(int arr[]) {
 		int[] prodArr = new int[arr.length];
 
-		int prod = product(arr);
+		int prod = productRecursive(arr, arr.length);
 
 		// to exclude integer from current position - divide general product to current
 		// element
@@ -72,6 +78,7 @@ public class ArrayProduct {
 	}
 
 	// product of all elements in an array
+	// method1
 	static int product(int arr[]) {
 		int n = arr.length;
 		int product = 1;
@@ -81,6 +88,15 @@ public class ArrayProduct {
 		}
 
 		return product;
+	}
+
+	// product of all elements in an array (Recursive solution)
+	// method 2
+	static int productRecursive(int[] arr, int n) {
+		if (n <= 0) {
+			return 1;
+		}
+		return (productRecursive(arr, n - 1) * arr[n - 1]);
 	}
 
 }
