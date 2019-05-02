@@ -7,7 +7,7 @@ public class StringConcatenate {
 
 	@Test
 	public void concutStrings() {
-		Assert.assertEquals(concutStrings("hello", "World"), "hWeolrllod");
+		Assert.assertEquals(concatStrings("hello", "World"), "hWeolrllod");
 	}
 
 	/*
@@ -18,7 +18,7 @@ public class StringConcatenate {
 	 * reach end of one string while if another string is still remaining then
 	 * append the remaining of that string to final string
 	 */
-	public static String concutStrings(String s1, String s2) {
+	public static String concatStrings(String s1, String s2) {
 		StringBuilder finalString = new StringBuilder();
 
 		/* append character to final string from the two strings */
