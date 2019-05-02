@@ -3,7 +3,7 @@ package Tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class StringConcutenate {
+public class StringConcatenate {
 
 	@Test
 	public void concutStrings() {
