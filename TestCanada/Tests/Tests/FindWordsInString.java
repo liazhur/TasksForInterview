@@ -12,9 +12,10 @@ import org.testng.annotations.Test;
 public class FindWordsInString {
 
 	/*
-	 * There is String s = "ahellowerror"; There is method isWord(String s) that
-	 * returns true if s is word. Write method to return all possible words from
-	 * string s in a list e.g: ["a", "hello", "lower", "we", "or", "error"]
+	 * There is String s = "ahellowerror"; There is method isWord(String s)(in that
+	 * solution there is dictionary) that returns true if s is word. Write method to
+	 * return all possible words from string s in a list e.g: ["a", "hello",
+	 * "lower", "we", "or", "error"]
 	 */
 
 	private static final Set<String> dictionary = new TreeSet<String>();
