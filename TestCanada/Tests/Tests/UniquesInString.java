@@ -1,8 +1,10 @@
 package Tests;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -11,9 +13,12 @@ public class UniquesInString {
 
 	public static void main(String[] args) {
 		String str = "Hello word!";
-		printUniqueFromString(str);
-		printUniqueFromString2();
-		printUniqueFromStringBestSolution(str);
+//		printUniqueFromString(str);
+//		printUniqueFromString2();
+//		printUniqueFromStringBestSolution(str);
+//		isUnique("asadff");
+//		System.out.println(findUniqueBruteForce(str));
+		System.out.println(findUniqueHashSet(str));
 	}
 
 	@Test
@@ -104,6 +109,53 @@ public class UniquesInString {
 
 		for (int i = 0; i < MAX_CHAR && index[i] != n; i++)
 			System.out.print(str.charAt(index[i]));
+	}
+
+	public static boolean isUnique(String s) {
+		boolean[] sArr = new boolean[128];
+		StringBuilder res = new StringBuilder();
+		for (int i = 0; i < s.length(); i++) {
+			int val = s.charAt(i);
+			if (sArr[val]) {
+				char c = s.toCharArray()[i];
+
+				int index = res.indexOf(Character.toString(c));
+				res = res.deleteCharAt(index);
+				continue;
+			}
+
+			sArr[val] = true;
+			res.append(s.toCharArray()[i]);
+
+		}
+		System.out.println(res);
+		return true;
+	}
+
+	// prints duplicates
+	public static String findUniqueBruteForce(String str) {
+		String res = "";
+		for (int i = 0; i < str.length(); i++) {
+			for (int j = i + 1; j < str.length(); j++) {
+				if (str.charAt(i) == str.charAt(j)) {
+					res = res + str.charAt(i);
+				}
+			}
+		}
+		return res;
+	}
+
+	public static String findUniqueHashSet(String str) {
+		Set<Character> hashChar = new HashSet<Character>();
+		String dup = "";
+		char[] arrCharr = str.replace(" ", "").toCharArray();
+		for (char c : arrCharr) {
+			if (hashChar.add(c) == true)
+				dup += c;
+
+		}
+		return dup;
+
 	}
 
 }

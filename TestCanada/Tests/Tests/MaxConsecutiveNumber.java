@@ -9,10 +9,13 @@ public class MaxConsecutiveNumber {
 	// and returns the maximum number of consecutive zeros or ones
 
 	public static void main(String[] args) {
-		int[] allDigits0 = { 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0 };
-		int[] allDigits1 = { 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1 };
-		System.out.println(findMax01(allDigits0));
-		System.out.println(findMax01(allDigits1));
+//		int[] allDigits0 = { 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0 };
+//		int[] allDigits1 = { 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1 };
+//		System.out.println(findMax01(allDigits0));
+//		System.out.println(findMax01(allDigits1));
+//		findBinary(529);
+		int[] enterArray = { 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1 };
+		findMaxZeros(enterArray);
 	}
 
 	@Test
@@ -26,6 +29,15 @@ public class MaxConsecutiveNumber {
 		Assert.assertEquals(MaxConsecutiveNumber.findMaxOnes(enterArray), 7);
 		Assert.assertEquals(MaxConsecutiveNumber.findMaxZerosOrOnes(enterArray0), "Max is 0: 6");
 		Assert.assertEquals(MaxConsecutiveNumber.findMaxZerosOrOnes(enterArray01), "Equal numbers of 1 and 0");
+	}
+
+	public static String findBinary(int n) {
+		n = 529;
+		Integer i = new Integer(n);
+		String binary = Integer.toBinaryString(i);
+		System.out.println("Binary value: " + binary);
+		return binary;
+
 	}
 
 	public static int findMaxZeros(int arr[]) {

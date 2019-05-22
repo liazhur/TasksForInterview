@@ -47,11 +47,13 @@ public class FindWordsInString {
 
 		final Set<String> validWords = new HashSet<String>();
 		for (int i = 0; i < str.length(); i++) {
-			StringBuilder sb = new StringBuilder();
+//			StringBuilder sb = new StringBuilder();
+			String res = "";
 			for (int j = i; j < str.length(); j++) {
-				sb.append(str.charAt(j)); // O(1) complexity.
-				if (dictionary.contains(sb.toString())) {
-					validWords.add(sb.toString());
+//				sb.append(str.charAt(j)); // O(1) complexity.
+				res += str.charAt(j);
+				if (dictionary.contains(res.toString())) {
+					validWords.add(res.toString());
 				}
 			}
 		}
