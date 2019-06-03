@@ -3,7 +3,7 @@ package Tests;
 public class AirPlane {
 
 	public static void main(String[] args) {
-		int A[] = { 9, 4, 2, 10, 7, 8, 8, 1, 9 };
+		int A[] = { 1, 1, 2, 3 };
 		System.out.print(solution2(A));
 	}
 
@@ -45,7 +45,7 @@ public class AirPlane {
 		return result;
 	}
 
-	public static int solution2(int[] A) {
+	public static int solution2(int[] A) {// 111 121
 		int[] arrayHelper = new int[A.length];
 		for (int i = 0; i < arrayHelper.length; i++) {
 			if (i == 0) {
@@ -53,18 +53,18 @@ public class AirPlane {
 			} else {
 				int diff = A[i] - A[i - 1];
 				if (diff == 0) {
-					arrayHelper[i] = arrayHelper[i - 1];
+					arrayHelper[i] = arrayHelper[i - 1];// 0
 				} else {
-					arrayHelper[i] = (diff > 0) ? 1 : -1;
+					arrayHelper[i] = (diff > 0) ? 1 : -1;// 000 01-1
 				}
 			}
 		}
-
+// 1123 -> 0011
 		int longestPeriod = 1, currentPeriod = 1;
 		for (int i = 1; i < arrayHelper.length; i++) {
 			if (arrayHelper[i] != arrayHelper[i - 1]) {
 				currentPeriod++;
-				if (i > 1 && arrayHelper[i - 1] == arrayHelper[i - 2]) {
+				if (i > 1 && arrayHelper[i - 1] == arrayHelper[i - 2] && (arrayHelper[i - 1] != 0)) {
 					currentPeriod++;
 				}
 			} else {
